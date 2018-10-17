@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { createElement } from 'react';
-import styled from 'styled-components';
 // import FallbackIcon from './FallbackIcon';
 import * as CoinIcons from './icons';
-
-const Container = styled.div`
-
-`;
 
 const CoinIcon = ({ fallbackRenderer, size, symbol, ...props }) => {
   const formattedSymbol = symbol
@@ -17,13 +12,13 @@ const CoinIcon = ({ fallbackRenderer, size, symbol, ...props }) => {
   const iconElement = iconExists ? CoinIcons[formattedSymbol] : fallbackRenderer;
 
   return (
-    <Container {...props} size={size}>
+    <span {...props} size={size}>
       {createElement(iconElement, {
         height: size,
         symbol: formattedSymbol,
         width: size,
       })}
-    </Container>
+    </span>
   );
 }
 
