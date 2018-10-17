@@ -1,0 +1,44 @@
+{
+  "name": "crypto-icons-react",
+  "version": "0.0.1",
+  "description": "Put a description here",
+  "main": "lib/index.js",
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.2"
+  },
+  "dependencies": {
+    "@svgr/cli": "^3.1.0",
+    "create-index": "^2.3.0",
+    "cryptocurrency-icons": "^0.8.1",
+    "prop-types": "^15.6.2",
+    "react": "^15.5.4",
+    "react-primitives": "^0.6.1",
+    "styled-components": "3.3.3",
+    "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-logos": "cpx 'node_modules/cryptocurrency-icons/svg/color/*' logos/",
+    "make-logos": "svgr --svg-attributes viewBox='0 0 32 32' logos/ --out-dir ./src/icons",
+    "make-index": "create-index ./src/icons/",
+    "make": "npm run copy-logos && npm run make-logos && npm run make-index",
+   "start": "npm run make && webpack --watch",
+    "build": "npm run make && webpack",
+    "web": "webpack",
+    "babeler": "babel src --out-dir lib"
+  },
+  "author": {
+    "name": "Jake Sylvestre",
+    "email": "jakesyl@gmail"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "cpx": "^1.5.0"
+  }
+}
